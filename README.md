@@ -48,3 +48,8 @@ or if you have another suggestion to keep records of the state made by API let m
 Some examples are in the `/examples` folder, <br>
 
 
+## Credits
+
+This package is built on top of the beautiful [HomeAssistantAPI](https://github.com/GrandMoff100/HomeAssistantAPI)
+
+
