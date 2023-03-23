@@ -7,7 +7,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='reacthass',
-    version='0.1.1',
+    version='0.1.2',
     packages=['reacthass'],
     url='https://github.com/N4S4/reacthass',
     license='GPL-3.0 license',
