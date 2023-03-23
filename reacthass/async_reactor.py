@@ -2,13 +2,10 @@ from homeassistant_api import Client
 from aiohttp_client_cache import CachedSession, FileBackend
 
 import logging
-import asyncio
 from datetime import timedelta
 
 logging.basicConfig(filename='log.log', encoding='utf-8', level=logging.ERROR)
 
-
-# TODO all working now, clean up all modules
 
 class AsyncReactor(Client):
     def __init__(self, url, token, cache_refresh_seconds, verify_ssl=False):
@@ -16,8 +13,6 @@ class AsyncReactor(Client):
         self._verify_ssl = verify_ssl
         self._token = token
         self._url = url
-        #self._global_request_kwargs = global_request_kwargs
-        #self._entity_groups = self.endpoint(self._entity_group_set())
 
         if not self._url.endswith('/api'):
             self._url = url + '/api'
@@ -26,7 +21,7 @@ class AsyncReactor(Client):
         # expire_after= goes in FileBackend() and not outside as the documentation say
 
         super().__init__(self._url, self._token, async_cache_session=self._cache_refresh_seconds,
-                         verify_ssl=self._verify_ssl, use_async=True)#, global_request_kwargs=self._global_request_kwargs)
+                         verify_ssl=self._verify_ssl, use_async=True)
 
     async def _entity_group_set(self):
         groups = await self.get_groups()

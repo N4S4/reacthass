@@ -35,8 +35,6 @@ class Reactor(Client):
             return self.set_state(State(state=value, entity_id=entity))
 
     def get_groups(self):
-        # with self._client:
-        # entity_groups = self._client.get_entities()
         groups = []
         for group in self._entity_group:
             groups.append(group)
@@ -104,7 +102,7 @@ class Reactor(Client):
                            operator_type: str = '=='):  # operator_type accept <= >= == != < > operator
 
         client = Reactor(self._url, self.token, verify_ssl=self._verify_ssl)
-        #initiate a client just for the loop, it is actually used the main Reactor initiatior
+        # initiate a client just for the loop, it is actually used the main Reactor initiatior
 
         with client:
             while True:
